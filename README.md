@@ -1,0 +1,1 @@
+# Slick-slide-delay
