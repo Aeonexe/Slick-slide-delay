@@ -883,16 +883,14 @@
 
 
         if (_.$slides) {
-            setTimeout(function(){
-                _.$slides
-                    .removeClass('slick-slide slick-active slick-center slick-visible slick-current')
-                    .removeAttr('aria-hidden')
-                    .removeAttr('data-slick-index')
-                    .each(function(){
-                        $(this).attr('style', $(this).data('originalStyling'));
-                    });
-            },3000)
 
+            _.$slides
+                .removeClass('slick-slide slick-active slick-center slick-visible slick-current')
+                .removeAttr('aria-hidden')
+                .removeAttr('data-slick-index')
+                .each(function(){
+                    $(this).attr('style', $(this).data('originalStyling'));
+                });
 
             _.$slideTrack.children(this.options.slide).detach();
 
@@ -2287,15 +2285,14 @@
         var _ = this,
             centerOffset, allSlides, indexOffset, remainder;
 
-            allSlides = _.$slider
-                .find('.slick-slide')
-                .removeClass('slick-active slick-center slick-current')
-                .attr('aria-hidden', 'true');
+        allSlides = _.$slider
+            .find('.slick-slide')
+            .removeClass('slick-active slick-center slick-current')
+            .attr('aria-hidden', 'true');
 
-            _.$slides
-                .eq(index)
-                .addClass('slick-current');
-
+        _.$slides
+            .eq(index)
+            .addClass('slick-current');
 
         if (_.options.centerMode === true) {
 
@@ -2304,6 +2301,7 @@
             centerOffset = Math.floor(_.options.slidesToShow / 2);
 
             if (_.options.infinite === true) {
+
                 if (index >= centerOffset && index <= (_.slideCount - 1) - centerOffset) {
                     _.$slides
                         .slice(index - centerOffset + evenCoef, index + centerOffset + 1)
@@ -2357,10 +2355,8 @@
 
             } else {
 
-
                 remainder = _.slideCount % _.options.slidesToShow;
                 indexOffset = _.options.infinite === true ? _.options.slidesToShow + index : index;
-
 
                 if (_.options.slidesToShow == _.options.slidesToScroll && (_.slideCount - index) < _.options.slidesToShow) {
 
@@ -2379,12 +2375,12 @@
                 }
 
             }
+
         }
 
         if (_.options.lazyLoad === 'ondemand' || _.options.lazyLoad === 'anticipated') {
             _.lazyLoad();
         }
-
     };
 
     Slick.prototype.setupInfinite = function() {
@@ -2898,12 +2894,11 @@
             _.$nextArrow.remove();
         }
 
-        setTimeout(function(){
-            _.$slides
-                .removeClass('slick-slide slick-active slick-visible slick-current')
-                .attr('aria-hidden', 'true')
-                .css('width', '');
-        },3000)
+        _.$slides
+            .removeClass('slick-slide slick-active slick-visible slick-current')
+            .attr('aria-hidden', 'true')
+            .css('width', '');
+
     };
 
     Slick.prototype.unslick = function(fromBreakpoint) {
