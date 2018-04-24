@@ -7,8 +7,8 @@ $('.slider').on('init', function(event, slick ){
 
 
 $('.slider').slick({
-    autoplay: true,
-    autoplaySpeed: 3000,
+    // autoplay: true,
+    // autoplaySpeed: 4000,
     infinite: true,
     speed: 0,
     fade: true,
@@ -19,26 +19,34 @@ $('.slider').slick({
     arrows: true,
     useTransform: false,
     waitForAnimate: false,
-    arrows: false,
+    arrows: true,
     //appendArrows: $('#main-slider-nav'),
-    prevArrow: '<a href="#">Prev</a>',
-    nextArrow: '<a href="#">Sig</a>',
+    // prevArrow: '<a href="#">Prev</a>',
+    // nextArrow: '<a href="#">Sig</a>',
 });
 
 $('.slider').on('beforeChange', function(event, slick, currentSlide, nextSlide){
     //e.preventDefault();
    // var current = $slides[currentSlide]
     // console.log("Before: ", slick.$slides[currentSlide]);
-    console.log("Before: ", event);
+    // console.log("Before: ", event);
 
-    var current = slick.$slides[currentSlide];
+    // var current = slick.$slides[currentSlide];
     // $(current).addClass('slick-out');
-    //$(current).removeClass('slick-in');
+    // $('.slick-slide').not(current).removeClass('slick-out');
+    // $(current).removeClass('slick-in');
+
+    // setTimeout(function () {
+    $(".slick-slide").animate({
+        opacity: '1',
+        //left: '100%'
+    });
+    // }, 2000);
 
     
 
-    setTimeout(function(){
-    }, 2000);
+    // setTimeout(function(){
+    // }, 2000);
 
 });
 //
@@ -46,29 +54,19 @@ $('.slider').on('afterChange', function(event, slick, currentSlide){
     // console.log("After: ", slick.$slides[currentSlide]);
     // console.log("After: ", currentSlide);
     
-    var current = slick.$slides[currentSlide];
+    // var current = slick.$slides[currentSlide];
     // $(current).removeClass('slick-out');
-    //$(current).addClass('slick-in');
-    $('.slick-slide').removeClass('slick-out');
+    // $(current).addClass('slick-in');
+    
+    // setTimeout(function () {
+        $(".slick-slide").animate({
+            opacity: '1',
+        });
+        
+    // }, 2000);
 
-    setTimeout(function () {
-    }, 2000);
+    // setTimeout(function () {
+    // }, 2000);
 
 });
 
-
-$('.slide-next').click(function(){
-    setTimeout(function(){
-        $('.slider').slick('slickNext');
-    }, 2000);
-    $('.slick-active').addClass('slick-out');
-    $('.slick-slide').not('.slick-active').removeClass('slick-out');
-});
-
-$('.slide-prev').click(function () {
-    setTimeout(function () {
-        $('.slider').slick('slickPrev');
-    }, 2000);
-    $('.slick-active').addClass('slick-out');
-    $('.slick-slide').not('.slick-active').removeClass('slick-out');
-});
